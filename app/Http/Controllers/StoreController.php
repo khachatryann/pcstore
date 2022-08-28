@@ -24,7 +24,9 @@ class StoreController extends Controller
             'posts.content',
             'posts.created_at')
             ->join('users', 'posts.user_id', '=', 'users.id')
-            ->get();
+            ->paginate(3);
+
+
 
         return view('dash.store.index', ['posts' => $posts]);
     }
@@ -56,9 +58,26 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Post $post)
     {
-        return view('dash.store.show');
+//        $one_post = Post::select(
+//            'users.name AS Author',
+//            'posts.id',
+//            'posts.name',
+//            'posts.image',
+//            'posts.price',
+//            'posts.qt',
+//            'posts.content')
+//            ->join('users', 'posts.user_id', '=', 'posts.id')
+//            ->where('posts.id', '=', $post['id'])
+//            ->get();
+//
+////        $one_post = json_decode($one_post, true);
+//        return view('dash.store.show', ['one_post' => $one_post]);
+
+
+//        return view('dash.store.show', ['post' => $post]);
+
     }
 
     /**

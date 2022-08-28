@@ -11,6 +11,8 @@
         @endif
         <h2 class="mt-2" style="color: Navy">POST COUNT ( <span style="color: Maroon">{{ count($posts) }}</span> )</h2>
 
+        {{ $posts->links() }}
+
         @foreach($posts as $post)
         <div class="card mt-4" style="width: 18rem;">
             @if(empty($post['image']))

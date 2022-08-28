@@ -8,7 +8,9 @@
 {{--        @if(session('success'))--}}
 {{--            <div class="alert alert-success mt-2">{{ session('success') }}</div>--}}
 {{--        @endif--}}
-        <h2 class="mt-2" style="color: Navy">ALL PRODUCTS ( <span style="color: Maroon">{{ count($posts) }}</span> )</h2>
+        <h2 class="mt-2" style="color: #6FCF97">PRODUCTS ( <span style="color: Maroon">{{ count($posts) }}</span> )</h2>
+
+        {{ $posts->links() }}
 
         @foreach($posts as $post)
             <div class="card mt-4" style="width: 18rem;">
@@ -25,7 +27,7 @@
                     <li class="list-group-item">Price` <span style="color: Aqua">{{ $post['price'] }}$</span></li>
                 </ul>
                 <div class="card-body">
-                    <a href="{{ route('stores.show', $post) }}" class="btn btn-outline-warning">BUY</a>
+                    <a href="{{ route('stores.show', $post) }}" class="btn btn-outline-success">Buy</a>
                 </div>
             </div>
         @endforeach

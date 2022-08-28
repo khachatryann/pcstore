@@ -27,7 +27,7 @@ class PostController extends Controller
             'posts.content',
             'posts.created_at')
         ->join('users', 'posts.user_id', '=', 'users.id')
-        ->get();
+        ->paginate(3);
 
         return view('dash.posts.index', ['posts' => $posts]);
     }
@@ -167,7 +167,11 @@ class PostController extends Controller
         $delete = $post->delete();
 
         if($delete) {
-            return redirect()->route('posts.index')->with('success', 'Post deleted successfully');
+            return redirect()->route('posts.index')->with('success', 'Post deleted');
         }
     }
+
+//    public function allPost() {
+//        return Post::all();
+//    }
 }

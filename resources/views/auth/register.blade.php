@@ -8,6 +8,9 @@
             <div class="col-mb-8"></div>
             <div class="col-md-4">
                 <h2>Create Account</h2>
+                @if(session('success'))
+                    <div class="alert alert-danger">{{ session('success') }}</div>
+                @endif
                 <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">

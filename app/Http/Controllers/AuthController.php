@@ -70,4 +70,21 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('login_view');
     }
+
+    //api
+    public function index() {
+
+        return User::all();
+    }
+
+    public function delete($id) {
+        $user = User::find($id);
+        $delete = $user->delete();
+
+        if($delete) {
+            return redirect()
+                ->route('register_view')
+                ->with('success', 'Your Account deleted');
+        }
+    }
 }

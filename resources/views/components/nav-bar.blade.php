@@ -38,7 +38,11 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    @if(Auth::user()->role_id ==2 || Auth::user()->role_id == 3)
+                    <li><a class="dropdown-item" href="{{ route('delete', Auth::user()->id) }}" style="background: #ff0000; color: white">Delete Account</a></li>
+                    @else
+                        <li><a class="dropdown-item" href="#">Another Action</a></li>
+                    @endif
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="{{ route("logout") }}">Log Out</a></li>
                 </ul>
